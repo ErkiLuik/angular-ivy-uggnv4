@@ -9,7 +9,7 @@ import { ApiComponent } from './api/api.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule ],
-  declarations: [ AppComponent, HelloComponent, ApiComponent ],
+  declarations: [ AppComponent, HelloComponent,ApiComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,7 +1,10 @@
 <input #search />
 <button (click)="startSearch()" >Search!</button>
 <div *ngIf="searchResult">
-  <h2>{{ searchResult.title }}</h2>
-  <p>{{ searchResult.extract }}</p>
-  <p>{{ searchResult.timestamp}}</p>
+  <div  *ngFor="let result of searchResult.pages">
+    <h2>{{ result.title }}</h2>
+    <img [src]="getImageUrl(result)" [alt]="result.title" />
+    <p>{{ result.extract }}</p>
+    <p>Changed date {{ result.timestamp | date }}</p>
+  </div>
 </div>
