@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef,  OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -8,13 +8,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiComponent implements OnInit {
 
+  @ViewChild('search') searchBox: ElementRef<HTMLInputElement>;
   constructor(public http: HttpClient) {
     
   }
 
   ngOnInit() {
-    this.http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=viljandi&key=AIzaSyB93wKf8n1Vd5j86MY16TLzRZQHTcbgdf0').subscribe((res)=> {
+    this.http.get('https://en.wikipedia.org/api/rest_v1/page/summary/viljandi').subscribe((res)=> {
       console.log(res);
     })
+
+  }
+
+  startSearch () {
+    console.log(this.searchBox.nativeElement.value);
+
   }
 }
